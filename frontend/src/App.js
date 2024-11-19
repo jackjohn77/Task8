@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
-import About from "./pages/About";
-import Login from "./pages/Login";
+import SearchResult from "./pages/SearchResult";
 
-import Basket from "./pages/Basket";
+
+
+import Favorites from "./pages/Favorites";
 import "./App.css";
 
 function App() {
@@ -17,11 +17,8 @@ function App() {
         <Routes>
           {/* Routes to home, product, about page and more*/}
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          
-          <Route path="/basket" element={<Basket />} />
+          <Route path="/searchResult" element={<SearchResult />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </Router>
     </div>

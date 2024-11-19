@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Import image
 import Logo_menu from "../images/Logo_menu.png";
@@ -15,7 +15,7 @@ export default function Menu() {
 
   // Retrieve the basketState from the Redux store.
   const basketQuantity = useSelector((state) => state.basket.quantity);
-  const dispatch = useDispatch();
+
 
   // Local state and handle functions that hide the menu once a link is clicked
   const [expanded, setExpanded] = useState(false);
@@ -44,26 +44,22 @@ export default function Menu() {
               Home
             </NavLink>
             <NavLink
-              to="/products"
+              to="/searchResult"
               className="nav-link"
               onClick={handleLinkClick}
             >
-              Products
-            </NavLink>
-            <NavLink to="/about" className="nav-link" onClick={handleLinkClick}>
-              About
+              Search Results
             </NavLink>
 
             <NavLink
-              to="/basket"
+              to="/favorites"
               className="nav-link"
               onClick={handleLinkClick}
             >
               {/*Shows the basket quantity when an item is added */}
-              Basket {basketQuantity === 0 ? "" : `(${basketQuantity})`}
+              Favorites {basketQuantity === 0 ? "" : `(${basketQuantity})`}
             </NavLink>
           </Nav>
-          
         </Navbar.Collapse>
       </Container>
     </Navbar>

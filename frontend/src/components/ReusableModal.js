@@ -1,7 +1,7 @@
 // Import frameworks and library's
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import "bootstrap-icons/font/bootstrap-icons.css";
+
 import { useSelector, useDispatch } from "react-redux";
 
 // Import store Slice reducers.

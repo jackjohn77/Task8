@@ -8,7 +8,7 @@ import Shipment from "../components/Shipment";
 
 // Basket page contain on imported basket table component and a shipment
 // table.
-export default function Basket() {
+export default function Favorites() {
   return (
     <Container className="App full-height">
       <Row>
