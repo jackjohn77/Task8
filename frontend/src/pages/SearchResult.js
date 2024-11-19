@@ -15,6 +15,8 @@ import { showModal } from "../store/reusableModalState";
 
 // Import child components
 import ReusableModal from "../components/ReusableModal";
+import SearchTable from "../components/SearchTable";
+import Search from "../components/Search";
 
 // Products page component shows a mapped cards with images, buttons and
 // dropdown menus. The user can select a colour to buy and click buy to
@@ -53,6 +55,8 @@ export default function SearchResults() {
   return (
     <div className="App ">
       <Container>
+        <Search></Search>
+        <SearchTable></SearchTable>
         <Row>
           {/* Map for items contained in products array  */}
           {products.map((product, index) => (

@@ -39,7 +39,7 @@ export default function Menu() {
           onClick={handleToggle}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto d-lg-flex text-end">
+          <Nav className="centre">
             <NavLink to="/" end className="nav-link" onClick={handleLinkClick}>
               Home
             </NavLink>
