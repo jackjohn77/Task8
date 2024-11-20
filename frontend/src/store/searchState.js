@@ -18,9 +18,12 @@ const searchSlice = createSlice({
     addTerm: (state, action) => {
       state.term = action.payload;
     },
+    addSearchResult: (state, action) => {
+      state.term = action.payload;
+    },
   },
 });
-export const { addMedia, addTerm } = searchSlice.actions;
+export const { addMedia, addTerm, addSearchResult } = searchSlice.actions;
 
 
 // Export the reducer function to be used in the store
