@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import FavoriteTable from "../components/favoriteTable";
 
 
-// Basket page contain on imported basket table component and a shipment
+// Favorite page contain on imported favorite table component and a shipment
 // table.
 export default function Favorites() {
   return (

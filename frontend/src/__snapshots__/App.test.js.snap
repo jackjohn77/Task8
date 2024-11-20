@@ -50,10 +50,10 @@ exports[`App renders correctly 1`] = `
           </a>
           <a
             className="nav-link"
-            href="/products"
+            href="/searchResult"
             onClick={[Function]}
           >
-            Products
+            searchResult
           </a>
           <a
             className="nav-link"
@@ -78,10 +78,10 @@ exports[`App renders correctly 1`] = `
           </a>
           <a
             className="nav-link"
-            href="/basket"
+            href="/favorite"
             onClick={[Function]}
           >
-            Basket 
+            Favorite 
           </a>
         </div>
         <span

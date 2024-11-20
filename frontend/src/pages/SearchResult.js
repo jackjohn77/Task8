@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 // Import store Slice reducers.
-import { basketAdd } from "../store/basketState";
+import { favoriteAdd } from "../store/favoriteState";
 import { showModal } from "../store/reusableModalState";
 
 // Import child components
@@ -18,19 +18,19 @@ import ReusableModal from "../components/ReusableModal";
 import SearchTable from "../components/SearchTable";
 import Search from "../components/Search";
 
-// Products page component shows a mapped cards with images, buttons and
+// searchResult page component shows a mapped cards with images, buttons and
 // dropdown menus. The user can select a colour to buy and click buy to
-// add to the basket. If the user do not select a colour a prompt is shown
+// add to the favorite. If the user do not select a colour a prompt is shown
 // using a reusable modal.
 export default function SearchResults() {
   // Retrieve the productState from the Redux store.
-  const products = useSelector((state) => state.products.products);
+  const searchResult = useSelector((state) => state.searchResult.searchResult);
   const dispatch = useDispatch();
 
   // Create local state that creates and array with matching length to the
-  // products array with the initial value being Choose Colour for each.
+  // searchResult array with the initial value being Choose Colour for each.
   const [selectedColours, setSelectedColours] = useState(
-    Array(products.length).fill("Choose Colour")
+    Array(searchResult.length).fill("Choose Colour")
   );
 
   // function that updates the selected colour state value when a colour is
@@ -48,7 +48,7 @@ export default function SearchResults() {
       dispatch(showModal("Please select a colour?"));
     } else {
       const productWithColor = { ...product, selectedColour: color };
-      dispatch(basketAdd(productWithColor));
+      dispatch(favoriteAdd(productWithColor));
     }
   };
 
@@ -58,8 +58,8 @@ export default function SearchResults() {
         <Search></Search>
         <SearchTable></SearchTable>
         <Row>
-          {/* Map for items contained in products array  */}
-          {products.map((product, index) => (
+          {/* Map for items contained in searchResult array  */}
+          {searchResult.map((product, index) => (
             <Col md={4} key={product.id} className="mb-4">
               <Card>
                 <Card.Img

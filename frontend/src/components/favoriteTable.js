@@ -4,21 +4,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Table, Container } from "react-bootstrap";
 
 // Import store Slice reducers.
-import { basketAdd, basketDecrease, basketDelete } from "../store/basketState";
+import { favoriteAdd, favoriteDelete } from "../store/favoriteState";
 
 // Import image
 import trash from "../images/trash.png";
 
-/* Basket table component, takes the array objects from the basketState and
+/* Favorite table component, takes the array objects from the favoriteState and
 populates a table using map function with ability to edit the quantity 
-and delete via buttons. Button clicks invoke the the basketState reducers*/
+and delete via buttons. Button clicks invoke the the favoriteState reducers*/
 export default function FavoriteTable() {
 
-  // Retrieve the basket state from the Redux store.
-  const basket = useSelector((state) => state.basket.basket);
+  // Retrieve the favorite state from the Redux store.
+  const favorite = useSelector((state) => state.favorite.favorite);
 
   // Retrieve the totalPrice state from the Redux store
-  const totalPrice = useSelector((state) => state.basket.total);
+  const totalPrice = useSelector((state) => state.favorite.total);
   const dispatch = useDispatch();
 
   return (
@@ -37,38 +37,32 @@ export default function FavoriteTable() {
             </tr>
           </thead>
           <tbody>
-            {basket.map((basketItems, index) => (
+            {favorite.map((favoriteItems, index) => (
               <tr key={index}>
                 <td>
                   <img
-                    src={basketItems.image}
-                    alt={basketItems.title}
+                    src={favoriteItems.image}
+                    alt={favoriteItems.title}
                     width="30px"
                   ></img>
                 </td>
-                <td>{basketItems.title}</td>
+                <td>{favoriteItems.title}</td>
 
-                <td>{basketItems.selectedColour}</td>
-                <td>{basketItems.price}</td>
-                <td>{basketItems.quantity}</td>
+                <td>{favoriteItems.selectedColour}</td>
+                <td>{favoriteItems.price}</td>
+                <td>{favoriteItems.quantity}</td>
 
-                <td>{(basketItems.quantity * basketItems.price).toFixed(2)}</td>
+                <td>{(favoriteItems.quantity * favoriteItems.price).toFixed(2)}</td>
                 <td className="button-group">
                   <Button
                     variant="light"
-                    onClick={() => dispatch(basketAdd(basketItems))} // Increase the basket item.
+                    onClick={() => dispatch(favoriteAdd(favoriteItems))} // Increase the favorite item.
                   >
                     +
                   </Button>
                   <Button
                     variant="light"
-                    onClick={() => dispatch(basketDecrease(index))} // Decrease the basket item.
-                  >
-                    -
-                  </Button>
-                  <Button
-                    variant="light"
-                    onClick={() => dispatch(basketDelete(index))} // Delete the whole basket item.
+                    onClick={() => dispatch(favoriteDelete(index))} // Delete the whole favorite item.
                   >
                     <img src={trash} alt="del" width="10px"></img>
                   </Button>

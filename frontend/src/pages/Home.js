@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <div className="App full-height">
         <h2>
-          The place to search for your favorite media and create your mix list
+          The place to searchResult for your favorite media and create your mix list
         </h2>
         <hr />
         <Search ></Search>

@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // Slice imports
-import basketState from "./basketState";
-import productsState from "./productsState";
+import favoriteState from "./favoriteState";
+import searchState from "./searchState";
 import reusableModalState from "./reusableModalState";
 const store = configureStore({
   reducer: {
-    basket: basketState,
-    products: productsState,
+    favorite: favoriteState,
+    search: searchState,
     reusableModal: reusableModalState,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),

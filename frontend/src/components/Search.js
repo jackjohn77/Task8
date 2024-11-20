@@ -1,35 +1,66 @@
 // Import useState, UseEffect, useRef
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallBack } from "react";
 import { Button } from "react-bootstrap";
+import { addMedia, addTerm } from "../store/searchState";
 
+import { useSelector, useDispatch } from "react-redux";
 
-
-import trash from "../images/trash.png";
+import searchResult from "../images/search.png";
 
 // Home component
 export default function Search() {
-  const [value, setValue] = useState('');
-  const handleChange = (event) => {
-    setValue(event.target.value)
-  }
+  // Retrieve the totalPrice state from the Redux store
+  const mediaChoice = useSelector((state) => state.search.mediaSelectionChoice);
+  const media = useSelector((state) => state.search.media);
+  const search = useSelector((state) => state.search.term);
+  const dispatch = useDispatch();
+
+  const [mediaValue, setMediaValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleMediaChange = (event) => {
+    const selectedValue = event.target.value;
+    setMediaValue(selectedValue);
+    dispatch(addMedia(selectedValue));
+  };
+
+  const handleSearchChange = (event) => {
+    const selectedValue = event.target.value;
+    setSearchValue(selectedValue);
+    dispatch(addTerm(selectedValue));
+  };
+
+  // Use useEffect to log the updated state 
+  useEffect(() => { console.log("Updated media:", media); }, [media]);
+  useEffect(() => {
+    console.log("Updated search:", search);
+  }, [search]);
 
   return (
     <div>
+      {" "}
       <div className="App">
-        <h3>Search Here</h3>
-        <select value={value} onChange={handleChange}>
-          <option value="all">All</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select>
-        <input></input>
-        
-
-        <Button variant="light" onClick="">
-          <img src={trash} alt="del" width="10px"></img>
-        </Button>
-      </div>
+        {" "}
+        <h3>Search Here</h3>{" "}
+        <select value={mediaValue} onChange={handleMediaChange}>
+          {" "}
+          {mediaChoice.map((option, index) => (
+            <option key={index} value={option}>
+              {" "}
+              {option.charAt(0).toUpperCase() + option.slice(1)}{" "}
+            </option>
+          ))}{" "}
+        </select>{" "}
+        <input value={searchValue} onChange={handleSearchChange}></input>{" "}
+        <Button variant="light" onClick={}>
+          {" "}
+          <img
+            src={searchResult}
+            alt="searchResult icon"
+            width="20px"
+          ></img>{" "}
+        </Button>{" "}
+      </div>{" "}
     </div>
   );
 }

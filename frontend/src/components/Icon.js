@@ -10,8 +10,8 @@ displaying a message stored in the shipment state. The message is based on
 the index prop received. */
 export default function Icon({ index }) {
 
-  // Retrieve the basket state from the Redux store.
-  const shipping = useSelector((state) => state.basket.shipment);
+  // Retrieve the favorite state from the Redux store.
+  const shipping = useSelector((state) => state.favorite.shipment);
 
   // Local state to control if the modal is shown or not.
   const [show, setShow] = useState(false);

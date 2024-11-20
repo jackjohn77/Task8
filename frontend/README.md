@@ -5,7 +5,7 @@ This project is a demo of a basic online web store and showcases many React modu
 ## Web-Store Features
 
 - The user can register multiple accounts and login using them.
-- Add products to the basket form the products page and edit whilst on the basket page.
+- Add searchResult to the favorite form the searchResult page and edit whilst on the favorite page.
 - Select shipping options
 - Viewing total costs including shipping
 - Reusable modal for displaying 
@@ -34,7 +34,7 @@ If you need help please contact the administrator on jack.johnson@web-store.com
 ## Project Structure
 - src
   - components
-    - BasketTable.js
+    - FavoriteTable.js
     - Icon.js
     - Menu.js
     - ReusableModal.js
@@ -42,13 +42,13 @@ If you need help please contact the administrator on jack.johnson@web-store.com
   
   - pages
     - About.js
-    - Basket.js
+    - Favorite.js
     - Home.js
     - Login.js
-    - Products.js
+    - searchResult.js
     - Registration.js
   - store
-    - basketState.js
+    - favoriteState.js
     - loginState.js
     - productState.js
     - registrationState.js

@@ -13,8 +13,8 @@ logo, login status and navigation links. The link change  */
 export default function Menu() {
   // Retrieve the loginState from the Redux store.
 
-  // Retrieve the basketState from the Redux store.
-  const basketQuantity = useSelector((state) => state.basket.quantity);
+  // Retrieve the favoriteState from the Redux store.
+  const favoriteQuantity = useSelector((state) => state.favorite.quantity);
 
 
   // Local state and handle functions that hide the menu once a link is clicked
@@ -56,8 +56,8 @@ export default function Menu() {
               className="nav-link"
               onClick={handleLinkClick}
             >
-              {/*Shows the basket quantity when an item is added */}
-              Favorites {basketQuantity === 0 ? "" : `(${basketQuantity})`}
+              {/*Shows the favorite quantity when an item is added */}
+              Favorites {favoriteQuantity === 0 ? "" : `(${favoriteQuantity})`}
             </NavLink>
           </Nav>
         </Navbar.Collapse>
